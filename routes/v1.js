@@ -1,7 +1,7 @@
-import health from './health.js'
-import records from './records.js'
+const health = require('./health.js');
+const records = require('./records.js');
 
-export default function(app) {
+module.exports = function(app) {
     app.use('/v1',records)
     app.use('/v1',health)
 }

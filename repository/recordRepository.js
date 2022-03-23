@@ -1,7 +1,10 @@
-import {getConnection} from './connection.js'
+const {getConnection} = require('./connection.js');
 
-const collection = (await getConnection()).collection('records')
-
-export function getAll() {
+async function getAll() {
+    const collection = (await getConnection()).collection('records')
     return collection.find({}).toArray()
+}
+
+module.exports = {
+    getAll
 }

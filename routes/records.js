@@ -1,5 +1,5 @@
-import express from 'express'
-import {getAll} from '../repository/recordRepository.js'
+const express = require('express');
+const {getAll} = require('../repository/recordRepository.js');
 const router = express.Router()
 
 router.post('/records', async function(req, res) {
@@ -7,4 +7,4 @@ router.post('/records', async function(req, res) {
     res.success(allRecords)
 })
 
-export default router
+module.exports = router

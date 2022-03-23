@@ -1,16 +1,18 @@
-import dotenv from 'dotenv'
-import express from 'express'
-import http from './middleware/http.js'
-import v1 from './routes/v1.js'
-dotenv.config()
+const dotenv = require('dotenv');
+const express = require('express');
+const http = require('./middleware/http.js');
+const v1 = require('./routes/v1.js');
+dotenv.config();
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 
 // midlewares loading
-app.use(http)
+app.use(http.middleware);
 
 // routes loading
-v1(app)
+v1(app);
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT);
+
+module.exports = app;

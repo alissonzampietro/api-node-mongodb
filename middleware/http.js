@@ -1,8 +1,8 @@
-export const setBodyFormat = (body) => ({
+const setBodyFormat = (body) => ({
     data: body
 })
 
-const httpMiddleware = function (req, res, next) {
+const middleware = function (req, res, next) {
     res.success = function(data) {
         res.status(200)
         res.json(setBodyFormat(data))
@@ -12,4 +12,7 @@ const httpMiddleware = function (req, res, next) {
     next()
 }
 
-export default httpMiddleware
+module.exports = {
+    middleware,
+    setBodyFormat
+}
